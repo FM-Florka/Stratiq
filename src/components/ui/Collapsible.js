@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 /**
  * Collapsible section. Header is always visible; body toggles.
@@ -24,13 +25,10 @@ export default function Collapsible({ title, subtitle, defaultOpen = true, badge
             </span>
           )}
         </div>
-        <svg
-          viewBox="0 0 24 24"
-          className={`h-5 w-5 shrink-0 text-black/40 transition-transform ${open ? "rotate-180" : ""}`}
-          fill="none"
-        >
-          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <ChevronDown
+          size={20}
+          className={`shrink-0 text-black/40 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
       {subtitle && <p className="mb-3 mt-1 max-w-2xl text-sm text-black/50">{subtitle}</p>}
       {open && <div className={subtitle ? "" : "mt-4"}>{children}</div>}

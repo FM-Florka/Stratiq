@@ -1,3 +1,5 @@
+import { Flag } from "lucide-react";
+
 /**
  * RedFlags — only meaningful when serious issues are detected.
  * Accepts the merged red_flags from the report (AI prose) or raw signals.
@@ -17,7 +19,7 @@ export default function RedFlags({ flags = [] }) {
         return (
           <div key={i} className="rounded-2xl border-l-4 bg-white p-4 shadow-sm" style={{ borderLeftColor: sev.color }}>
             <div className="flex items-center gap-2">
-              <span className="text-base">🚩</span>
+              <Flag size={16} className="shrink-0" style={{ color: sev.color }} fill={sev.color} />
               <p className="text-sm font-semibold text-black">{f.title}</p>
               <span className="ml-auto rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
                     style={{ color: sev.color, background: `color-mix(in srgb, ${sev.color} 12%, transparent)` }}>

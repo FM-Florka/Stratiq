@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, Play } from "lucide-react";
 import Tooltip from "@/components/ui/Tooltip";
 
 function fmt(n) {
@@ -53,7 +54,7 @@ function VideoMini({ v, owner }) {
         {v?.cover ? (
           <img src={v.cover} alt="" className="h-full w-full object-cover" />
         ) : (
-          <div className="grid h-full place-items-center text-black/30">▶</div>
+          <div className="grid h-full place-items-center text-black/30"><Play size={16} /></div>
         )}
         <span className="absolute left-1 top-1 rounded bg-black/40 px-1 py-0.5 text-[9px] font-semibold text-white">{owner}</span>
         <span className="absolute bottom-1 right-1 rounded bg-black/50 px-1 text-[9px] text-white">{v?.duration ?? 0}s</span>
@@ -122,9 +123,7 @@ export default function BattleCard({ user, comp }) {
           className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-black/10 py-2 text-sm font-semibold text-black transition-colors hover:bg-black/[0.04]"
         >
           {open ? "Sembunyikan" : "Adu video head-to-head"} ({matchups.length})
-          <svg viewBox="0 0 24 24" className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} fill="none">
-            <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <ChevronDown size={16} className={`transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
       )}
 

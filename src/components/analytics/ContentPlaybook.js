@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 function Item({ icon, title, defaultOpen = false, children }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -14,9 +15,7 @@ function Item({ icon, title, defaultOpen = false, children }) {
         <span className="flex items-center gap-2 text-sm font-semibold text-black">
           <span className="text-base">{icon}</span>{title}
         </span>
-        <svg viewBox="0 0 24 24" className={`h-4 w-4 shrink-0 text-black/40 transition-transform ${open ? "rotate-180" : ""}`} fill="none">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <ChevronDown size={16} className={`shrink-0 text-black/40 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
       {open && <div className="border-t border-black/[0.06] p-4">{children}</div>}
     </div>

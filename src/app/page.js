@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Loader2, Check } from "lucide-react";
 import InteractiveGrid from "@/components/InteractiveGrid";
 import TikTokIcon from "@/components/TikTokIcon";
 
@@ -107,15 +108,7 @@ function Checklist({ accent }) {
             className="grid h-5 w-5 shrink-0 place-items-center rounded-full"
             style={{ background: `color-mix(in srgb, ${accent} 18%, transparent)` }}
           >
-            <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none">
-              <path
-                d="M5 13l4 4L19 7"
-                stroke={accent}
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Check size={12} color={accent} strokeWidth={3} />
           </span>
           {t}
         </li>
@@ -346,29 +339,7 @@ export default function Home() {
               disabled={submitting}
               className="relative inline-flex items-center gap-2 rounded-xl bg-black px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-black/85 active:scale-[0.98] disabled:opacity-70 [box-shadow:0_6px_14px_-4px_rgba(0,0,0,0.5)]"
             >
-              {submitting && (
-                <svg
-                  className="h-4 w-4 animate-spin"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="9"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    className="opacity-25"
-                  />
-                  <path
-                    d="M21 12a9 9 0 0 0-9-9"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
+              {submitting && <Loader2 size={16} className="animate-spin" aria-hidden />}
               {submitting ? "Menganalisis…" : "Analisis"}
             </button>
           </span>

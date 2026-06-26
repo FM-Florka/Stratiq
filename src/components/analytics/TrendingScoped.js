@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, Play } from "lucide-react";
 
 function fmt(n) {
   if (typeof n !== "number") return n ?? "0";
@@ -16,7 +17,7 @@ function VideoCard({ v }) {
     <div className="rounded-2xl border border-black/10 bg-white p-3 shadow-sm">
       <div className="flex gap-3">
         <div className="relative h-28 w-20 shrink-0 overflow-hidden rounded-lg bg-black/5">
-          {v.cover ? <img src={v.cover} alt="" className="h-full w-full object-cover" /> : <div className="grid h-full place-items-center text-black/30">▶</div>}
+          {v.cover ? <img src={v.cover} alt="" className="h-full w-full object-cover" /> : <div className="grid h-full place-items-center text-black/30"><Play size={18} /></div>}
           <span className="absolute bottom-1 right-1 rounded bg-black/50 px-1 text-[9px] text-white">{v.duration}s</span>
         </div>
         <div className="min-w-0 flex-1">
@@ -37,9 +38,7 @@ function VideoCard({ v }) {
 
       <button onClick={() => setOpen((o) => !o)} className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border border-black/10 py-1.5 text-xs font-semibold text-black/70 hover:bg-black/[0.04]">
         {open ? "Tutup analisis" : "Kenapa ini tren & cara adaptasi"}
-        <svg viewBox="0 0 24 24" className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} fill="none">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (
